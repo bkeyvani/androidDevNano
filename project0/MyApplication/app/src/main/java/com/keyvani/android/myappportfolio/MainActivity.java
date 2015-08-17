@@ -1,11 +1,13 @@
 package com.keyvani.android.myappportfolio;
 
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.util.Log;
+import android.support.v7.app.AppCompatActivity;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.Button;
+import android.widget.RelativeLayout;
+import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -13,6 +15,25 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        RelativeLayout layout = (RelativeLayout) findViewById(R.id.mainActivity);
+
+        String[] buttonNames = {
+                "Spotify Streamer",
+                "Scores App",
+                "Library App",
+                "Build It Bigger",
+                "XYZ Reader",
+                "Capstone Project"
+        };
+
+        // start iterating from 1 to skip the TextView item
+        for (int i = 1; i < layout.getChildCount(); i++) {
+            View v = layout.getChildAt(i);
+            if (v instanceof Button) {
+                ((Button) v).setText(buttonNames[i - 1]);
+            }
+        }
     }
 
 
@@ -39,6 +60,13 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void displayToast(View view) {
-        Log.d("MainActivity", view.getResources().getResourceEntryName(view.getId()) + " Clicked!");
+
+//        String buttonName = view.getResources().getResourceEntryName(view.getId());
+//        Log.d("MainActivity", buttonName + " Clicked!");
+
+        Button b = (Button) view;
+        String bt = (String) b.getText();
+        Toast.makeText(this, "This button will lunch my " + bt + " app!", Toast.LENGTH_LONG)
+        .show();
     }
 }

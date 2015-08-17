@@ -10,16 +10,29 @@
         <item name="android:height">@dimen/button_height</item>
         <item name="android:maxWidth">240dp</item>
         <item name="android:minWidth">224dp</item>
+        <item name="android:layout_centerHorizontal">true</item>
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">@dimen/button_height</item>
+        <item name="android:layout_marginTop">@dimen/button_margin_top</item>
+        <item name="android:onClick">displayToast</item>
     </style>
+
     <style name="ButtonOrange" parent="ButtonStyle">
         <item name="android:background">@color/orange</item>
     </style>
+
     <style name="ButtonRed" parent="ButtonStyle">
         <item name="android:background">@color/red</item>
     </style>
+
     <style name="AppTitle">
         <item name="android:textColor">@color/dark_blue</item>
         <item name="android:textSize">@dimen/app_title</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_alignParentTop">true</item>
+        <item name="android:layout_centerHorizontal">true</item>
+        <item name="android:text">@string/app_title</item>
     </style>
 
 </resources>
